@@ -1,33 +1,5 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+// Global constants
+const MAX_TWEET_LENGTH = 140;
 
 const tweetTemplate = `
   <article class="tweet">
@@ -84,24 +56,55 @@ const createTweetElement = tweet => {
   return $tweet;
 }
 
-renderTweets(data); 
+const submitNewTweet = serializedData => {
+  $.ajax({
+    type: 'POST',
+    url: '/tweets',
+    dataType: 'text',
+    contentType: 'application/x-www-form-urlencoded',
+    data: serializedData,
+  })
+    .done(() => {
+      console.log('success');
+    })
+    .fail(() => {
+      console.log('failed');
+    });
+};
+
+const validateTweetBefore = (serializedData, callback) => {
+  const queryParams = new URLSearchParams(serializedData);
+  const text = queryParams.get('text');
+  if (!text) {
+    alert('Your tweet cannot be blank.');
+  } else if (text.length > MAX_TWEET_LENGTH) {
+    alert(`Your tweet needs to be less than ${MAX_TWEET_LENGTH} characters.`);
+  } else {
+    callback(serializedData);
+  }
+}
+
+const handleSubmit = form => {
+  const serializedData = $(form).serialize();
+  validateTweetBefore(serializedData, submitNewTweet);
+}
+
+const loadTweets = () => {
+  $.ajax('/tweets', { method: 'GET' })
+    .done(tweets => {
+      renderTweets(tweets);
+    })
+    .fail(() => {
+      console.log('failed');
+    });    
+};
+
+ 
 $(document).ready(function() {
-  renderTweets(data);
+  loadTweets();
 
   $('.new-tweet form').submit(function(e) {
     e.preventDefault();
-    $.ajax({
-      type: 'POST',
-      url: '/tweets',
-      dataType: 'text',
-      contentType: 'application/x-www-form-urlencoded',
-      data: $(this).serialize(),
-    })
-      .done(() => {
-        console.log('success');
-      })
-      .fail(() => {
-        console.log('failed');
-      });
+    handleSubmit(this);
   });
 }); 
