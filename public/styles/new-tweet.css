@@ -1,0 +1,26 @@
+textArea {
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid #545149;
+  background: none;
+  resize: none;
+  height: 1.8em;
+}
+
+.new-tweet--footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn-submit {
+  background-color: #4056A1;
+  color: #fff;
+  font-family: 'Bungee', sans-serif;
+  padding: 4px 8px;
+  font-size: 0.8em;
+}
+
+.counter {
+  font-family: 'Bungee', sans-serif;
+} 
