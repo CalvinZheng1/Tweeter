@@ -12,24 +12,25 @@
 /*
  * Global layout stuff
  */
-body {
+ body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
 }
-
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
- */ 
- 
- .container {
-  width: 90%;
-  text-align: center;
-  position: relative;
-} 
+ */
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
 
- .u-light {
-   font-weight: 300;
- } 
+  .u-light {
+    font-weight: 300;
+  }
+
+  .u-red {
+    color: #ef3e2b;
+  } 
