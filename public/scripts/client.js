@@ -85,3 +85,23 @@ const createTweetElement = tweet => {
 }
 
 renderTweets(data); 
+$(document).ready(function() {
+  renderTweets(data);
+
+  $('.new-tweet form').submit(function(e) {
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '/tweets',
+      dataType: 'text',
+      contentType: 'application/x-www-form-urlencoded',
+      data: $(this).serialize(),
+    })
+      .done(() => {
+        console.log('success');
+      })
+      .fail(() => {
+        console.log('failed');
+      });
+  });
+}); 

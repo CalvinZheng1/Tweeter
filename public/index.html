@@ -17,13 +17,6 @@
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
     <!-- Tweet CSS -->
     <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
-    <!-- External JS
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- App JS -->
-    <!-- <script type="text/javascript" src="/scripts/client.js"></script> -->
-     <!-- Character Counter JS -->
-     <!-- <script type="text/javascript" src="/scripts/composer-char-counter.js"></script> --> 
 
      <!-- MomentJS for time functionality -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
@@ -47,7 +40,7 @@
     <main class="container">
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
-        <form method="POST" action="/tweets">
+        <form>
           <textarea id="tweet-textarea" name="text" placeholder="What are you humming about?"></textarea>
           <div class="new-tweet--footer">
             <input class="btn-submit" type="submit" value="Tweet">
