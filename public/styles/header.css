@@ -1,9 +1,9 @@
 .header {
-  height: 520px;
+  height: 460px;
   width: 100%;
   background-color: #D79731;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-  padding-top: 120px;
+  padding-top: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
