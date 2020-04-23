@@ -75,16 +75,20 @@ const submitNewTweet = serializedData => {
 const validateTweetBefore = (serializedData, callback) => {
   const queryParams = new URLSearchParams(serializedData);
   const text = queryParams.get('text');
+  const $error = $('#error');
   if (!text) {
-    alert('Your tweet cannot be blank.');
+    $('#error span').text('Your tweet cannot be blank.');
+    $error.slideDown('slow');
   } else if (text.length > MAX_TWEET_LENGTH) {
-    alert(`Your tweet needs to be less than ${MAX_TWEET_LENGTH} characters.`);
+    $('#error span').text(`Your tweet needs to be less than ${MAX_TWEET_LENGTH} characters.`);
+    $error.slideDown('slow');
   } else {
     callback(serializedData);
   }
 }
 
 const handleSubmit = form => {
+  $('#error').slideUp('slow');
   const serializedData = $(form).serialize();
   validateTweetBefore(serializedData, submitNewTweet);
 }

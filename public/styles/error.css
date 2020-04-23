@@ -1,0 +1,22 @@
+#error {
+  border: 3px solid #ef3e2b;
+  margin: 24px 0;
+  padding: 10px;
+  color: #ef3e2b;
+}
+
+.error--content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#error svg {
+  height: 28px;
+  fill: #ef3e2b;
+  margin: 2px 12px 0 0;
+}
+
+#error.u-hidden {
+  display: none;
+} 
