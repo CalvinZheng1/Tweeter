@@ -17,6 +17,10 @@
   z-index: -1;
 }
 
+.tweet:hover footer svg{
+  visibility: visible;
+}
+
 .tweet--profile {
   display: flex;
   align-items: center;
@@ -24,7 +28,7 @@
 
 .tweet--profile img {
   margin-right: 16px;
-  height: 36px;
+    height: 36px;
 }
 
 .tweet:hover .tweet--handle {
@@ -48,6 +52,6 @@
 
 .tweet footer svg {
   height: 16px;
-  width: 16px;
   fill: #4056A1;
+  visibility: hidden;
 } 
