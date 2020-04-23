@@ -65,7 +65,7 @@ const submitNewTweet = serializedData => {
     data: serializedData,
   })
     .done(() => {
-      console.log('success');
+      loadTweets();
     })
     .fail(() => {
       console.log('failed');
@@ -89,10 +89,16 @@ const handleSubmit = form => {
   validateTweetBefore(serializedData, submitNewTweet);
 }
 
+const sortTweetsByNewest = tweets => {
+  return tweets.sort((a, b) => b.created_at - a.created_at);
+};
+
+
 const loadTweets = () => {
   $.ajax('/tweets', { method: 'GET' })
     .done(tweets => {
-      renderTweets(tweets);
+      $('#tweets').empty();
+      renderTweets(sortTweetsByNewest(tweets));
     })
     .fail(() => {
       console.log('failed');
