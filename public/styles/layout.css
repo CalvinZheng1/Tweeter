@@ -19,14 +19,18 @@
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
 }
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+
+p {
+  overflow-wrap: break-word;
+}
+
+/* Main Layout */
   .container {
     width: 100%;
     padding: 0 5%;
   }
 
+  /* Classes */
   .u-light {
     font-weight: 300;
   }
@@ -41,6 +45,7 @@
     display: none;
   }
 
+  /* Media Queries */
   @media (min-width: 1024px) {
     body {
       display: flex;
@@ -49,5 +54,6 @@
     .container {
       margin-top: 120px;
       padding: 0 24px;
+      width: 70%;
     }
   } 

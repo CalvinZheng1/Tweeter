@@ -1,0 +1,19 @@
+/* Scroll to top button */
+#btn-scroll-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  background-color: #f04935;
+  border: none;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  box-shadow: 5px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+#btn-scroll-top svg {
+  fill: #fff;
+  height: 36px;
+  margin: 4px auto 0 auto;
+}
