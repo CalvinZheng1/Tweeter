@@ -1,7 +1,7 @@
 textarea {
   width: 100%;
   border: none;
-  border-bottom: 3px solid #545149;
+  border-bottom: 3px solid rgb(170, 183, 230);
   background: none;
   resize: none;
   height: 1.8em;
@@ -14,7 +14,7 @@ textarea {
 }
 
 .btn-submit {
-  background-color: #4056A1;
+  background-color: rgb(170, 183, 230);
   color: #fff;
   font-family: 'Bungee', sans-serif;
   padding: 4px 8px;

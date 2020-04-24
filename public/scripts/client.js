@@ -29,11 +29,13 @@ const tweetTemplate = `
   </article>
 `;
 
+// Most function names are self explanatory however added comments to more complex functions
+
 const renderTweets = tweets => {
   tweets.forEach(tweet => {
     $('#tweets').append(createTweetElement(tweet));
   });
-}
+};
 
 const createTweetElement = tweet => {
   let $tweet = $(tweetTemplate);
@@ -55,7 +57,7 @@ const createTweetElement = tweet => {
     .text(moment(tweet.created_at).fromNow());
 
   return $tweet;
-}
+};
 
 const resetNewTweetForm = () => {
   $('.new-tweet form').trigger('reset');
@@ -83,7 +85,7 @@ const submitNewTweet = serializedData => {
       showErrorMessage('Error submitting tweet. Please try again.');
     });
 };
-
+// Making sure tweet fits all the requirments
 const validateTweetBefore = (serializedData, callback) => {
   const queryParams = new URLSearchParams(serializedData);
   const text = queryParams.get('text');
@@ -104,7 +106,7 @@ const handleSubmit = function(event) {
   // Get data from form, validate, and submit
   const serializedData = $(this).serialize();
   validateTweetBefore(serializedData, submitNewTweet);
-}
+};
 
 const sortTweetsByNewest = tweets => {
   return tweets.sort((a, b) => b.created_at - a.created_at);

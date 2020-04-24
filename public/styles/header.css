@@ -6,7 +6,7 @@
 .header--contents {
   width: 100%;
   height: 100%;
-  background-color: #D79731;
+  background-color: rgb(209, 222, 243);
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
   display: flex;
   justify-content: center;

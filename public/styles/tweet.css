@@ -1,5 +1,5 @@
 .tweet {
-  border: 3px solid #545149;
+  border: 3px solid #979797;
   padding: 16px;
   position: relative;
   background-color: #f4f1ec;
@@ -45,13 +45,13 @@
 .tweet footer {
   display: flex;
   justify-content: space-between;
-  border-top: 3px solid #545149;
+  border-top: 3px solid #979797;
   padding-top: 8px;
   font-size: 0.6em;
 }
 
 .tweet footer svg {
   height: 16px;
-  fill: #4056A1;
+  fill: rgb(170, 183, 230);
   visibility: hidden;
 } 

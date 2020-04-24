@@ -53,7 +53,7 @@
 /* Media Queries */
 @media (min-width: 1024px) {
   .main-nav {
-    background-color: #4056A1;
+    background-color: rgb(170, 183, 230);
     position: fixed;
   }
 } 

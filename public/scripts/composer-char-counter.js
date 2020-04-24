@@ -8,7 +8,7 @@ const handleScroll = () => {
   if ((scrollTopPos === 0 && !scrollTopIsHidden) || (scrollTopPos > 0 && scrollTopIsHidden)) {
     $scrollTopBtn.toggleClass('u-hidden');
     $('#new-tweet-toggle').toggleClass('u-hidden');
-  };
+  }
 };
 
 // Brings user to top of page and focuses textarea
@@ -23,7 +23,7 @@ const handleScrollTopClick = () => {
   }
   $(window).scrollTop(0);
   $('.new-tweet textarea').focus();
-}
+};
 
 // Show the characters remaining and change the text to red if over the limit
 const handleCharCounter = function() {
@@ -42,6 +42,6 @@ $(document).ready(() => {
 
   // Event handlers
   $("#tweet-textarea").on('input', handleCharCounter);
-  $(window).scroll(handleScroll)
+  $(window).scroll(handleScroll);
   $('#btn-scroll-top').click(handleScrollTopClick);
 });
