@@ -3,10 +3,13 @@
 Tweeter is a simple and responsive single-page Twitter clone built using HTML, CSS, JS, jQuery, AJAX and Node as part of a 4-days student project.
 
 ## Screenshots
-
+1. Main Screen
 !["Main Screen"](https://github.com/CalvinZheng1/Tweeter/blob/master/docs/Main%20Screen.png)
+2. New Tweet Submit Form
 !["Main Screen with New Tweet Box"](https://github.com/CalvinZheng1/Tweeter/blob/master/docs/Tweet%20Box.png)
+3. Tablet/Phone View
 !["Tablet/Phone View"](https://github.com/CalvinZheng1/Tweeter/blob/master/docs/Tablet:Phone%20View.png)
+4. Tweet layout and Jump To Top Button
 !["Tweets and Scroll to Top Button"](https://github.com/CalvinZheng1/Tweeter/blob/master/docs/Tweets%20and%20Scroll%20To%20Top%20Button.png)
 
 ## Getting Started
