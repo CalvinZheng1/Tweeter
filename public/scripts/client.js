@@ -1,6 +1,7 @@
 // Global constants
 const MAX_TWEET_LENGTH = 140;
 
+// Prevent cross-site scripting
 const tweetTemplate = `
   <article class="tweet">
     <header>
@@ -56,6 +57,16 @@ const createTweetElement = tweet => {
   return $tweet;
 }
 
+const resetNewTweetForm = () => {
+  $('.new-tweet form').trigger('reset');
+  $('.counter').text(MAX_TWEET_LENGTH);
+};
+
+const showErrorMessage = msg => {
+  $('#error span').text(msg);
+  $('#error').slideDown('slow');
+};
+
 const submitNewTweet = serializedData => {
   $.ajax({
     type: 'POST',
@@ -65,31 +76,33 @@ const submitNewTweet = serializedData => {
     data: serializedData,
   })
     .done(() => {
+      resetNewTweetForm();
       loadTweets();
     })
     .fail(() => {
-      console.log('failed');
+      showErrorMessage('Error submitting tweet. Please try again.');
     });
 };
 
 const validateTweetBefore = (serializedData, callback) => {
   const queryParams = new URLSearchParams(serializedData);
   const text = queryParams.get('text');
-  const $error = $('#error');
+  
   if (!text) {
-    $('#error span').text('Your tweet cannot be blank.');
-    $error.slideDown('slow');
+    showErrorMessage('Your tweet cannot be blank.');
   } else if (text.length > MAX_TWEET_LENGTH) {
-    $('#error span').text(`Your tweet needs to be less than ${MAX_TWEET_LENGTH} characters.`);
-    $error.slideDown('slow');
+    showErrorMessage(`Your tweet needs to be less than ${MAX_TWEET_LENGTH} characters.`);
   } else {
     callback(serializedData);
   }
-}
+};
 
-const handleSubmit = form => {
+const handleSubmit = function(event) {
+  event.preventDefault();
+  // Hide any error messages
   $('#error').slideUp('slow');
-  const serializedData = $(form).serialize();
+  // Get data from form, validate, and submit
+  const serializedData = $(this).serialize();
   validateTweetBefore(serializedData, submitNewTweet);
 }
 
@@ -105,16 +118,24 @@ const loadTweets = () => {
       renderTweets(sortTweetsByNewest(tweets));
     })
     .fail(() => {
-      console.log('failed');
+      showErrorMessage('Error loading tweets. Please refresh page.');
     });    
 };
 
- 
-$(document).ready(function() {
+const handleNewTweetToggle = () => {
+  const $newTweet = $('.new-tweet');
+  if ($newTweet.hasClass('u-hidden')) {
+    $newTweet.slideDown('slow').toggleClass('u-hidden');
+    $('.new-tweet textarea').focus();
+  } else {
+    $newTweet.slideUp('slow').toggleClass('u-hidden');
+  }
+};
+
+$(document).ready(() => {
   loadTweets();
 
-  $('.new-tweet form').submit(function(e) {
-    e.preventDefault();
-    handleSubmit(this);
-  });
-}); 
+  // Event handlers
+  $('.new-tweet form').submit(handleSubmit);
+  $('#new-tweet-toggle').click(handleNewTweetToggle);
+});
