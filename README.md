@@ -4,10 +4,10 @@ Tweeter is a simple and responsive single-page Twitter clone built using HTML, C
 
 ## Screenshots
 
-!["Main Screen"](https://github.com/CalvinZheng1/tweeter/blob/master/docs/Main-Screen.png?raw=true)
-!["Main Screen with New Tweet Box"](https://github.com/CalvinZheng1/tweeter/blob/master/docs/Tweet-Box.png?raw=true)
-!["Tablet/Phone View"](https://github.com/CalvinZheng1/tweeter/blob/master/docs/Tablet-Phone-View.png?raw=true)
-!["Tweets and Scroll to Top Button"](https://github.com/CalvinZheng1/tweeter/blob/master/docs/Tweets-and-Scroll-to-Top-Button.png?raw=true)
+!["Main Screen"](https://github.com/CalvinZheng1/Tweeter/blob/master/docs/Main%20Screen.png)
+!["Main Screen with New Tweet Box"](https://github.com/CalvinZheng1/Tweeter/blob/master/docs/Tweet%20Box.png)
+!["Tablet/Phone View"](https://github.com/CalvinZheng1/Tweeter/blob/master/docs/Tablet:Phone%20View.png)
+!["Tweets and Scroll to Top Button"](https://github.com/CalvinZheng1/Tweeter/blob/master/docs/Tweets%20and%20Scroll%20To%20Top%20Button.png)
 
 ## Getting Started
 
